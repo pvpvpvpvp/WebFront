@@ -6,6 +6,23 @@ h1 {
     background-color: greenyellow;
 
 }
-*{
-    /* color: grey; */
+
+
+/* 실행 순서에 따라서 동작여부가 갈림 주의! */
+a:visited{
+    /* 이미 방문한 링크 */
+    color: blue;
 }
+a:link{
+    /* 아직 미방문인 링크 */
+    color: cyan;
+}
+a:hover {
+    /* 마우스가 올라와 있을때 */
+    color: black;
+}
+a:active{
+    /* 마우스가 클릭된 상태 */
+    color: red;
+}
+
