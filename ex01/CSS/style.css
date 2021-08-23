@@ -1,0 +1,11 @@
+@charset "UTF-8";
+@import "main.css";
+
+h1 {
+    color:  red; 
+    background-color: greenyellow;
+
+}
+*{
+    /* color: grey; */
+}
