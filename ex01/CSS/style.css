@@ -1,28 +1,36 @@
 @charset "UTF-8";
+/* 외부 css를 불러 들인다 */
 @import "main.css";
 
 h1 {
-    color:  red; 
+    color: red;
+    /* 폰트 설정
+        : 후보 글꼴을 ,로 나열
+        : 폰트가 없을 경우 대비, 가장 마지막에 
+            일반 글꼴을 명시
+    */
+    font-family: 궁서체, 신명조, serif;
     background-color: greenyellow;
-
 }
 
-
-/* 실행 순서에 따라서 동작여부가 갈림 주의! */
-a:visited{
-    /* 이미 방문한 링크 */
-    color: blue;
-}
-a:link{
-    /* 아직 미방문인 링크 */
+/* 가상 선택자: 반응 선택자 */
+/* :link 상태와 :visited 상태 -> A Tag Only */
+a:link {
+    /* 아직 미방문인 링크의 상태 */
     color: cyan;
 }
+
+a:visited {
+    /* 이미 방문한 링크의 상태 */
+    color: blue;
+}
+
 a:hover {
-    /* 마우스가 올라와 있을때 */
+    /* 마우스가 올라왔을 때의 상태 */
     color: black;
 }
-a:active{
+
+a:active {
     /* 마우스가 클릭된 상태 */
     color: red;
 }
-

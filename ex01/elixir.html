@@ -1,122 +1,211 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bit Lounge 건강음료</title>
-  ㅣ<link rel="stylesheet" href="CSS/style.css">
+  <head>
+    <meta http-equiv="Content-Type"
+        content="text/html;charset=UTF-8">
+    <title>Bit Lounge 건강음료</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+      /* id 셀렉터: #아이디 */
+      #green {  /* id가 green인 요소 */
+        color: green; /* 키워드 */
+        color: #008000; /* 실제 값: 16진수 */
+      }
 
-  <style>
-    #green {color: green;}
-    #blue {color: blue;}
-    #purple {color: purple;}
-    #red {color: red;
-        color: rgba(255 , 0, 0, 0.5);
-    }
-    /* class 셀렉터 */
-    .beverage.green {background-color: rgba(0, 255, 0, 0.1);}
-    .beverage.blue {background-color: rgba(0, 0, 255, 0.1);}
-    .beverage.purple {background-color: rgba(128, 0, 128, 0.1);}
-    .beverage.red {background-color: rgba(255, 0, 0, 0.1);}
-   /* 자식 선택자 vs 후손 선택자
-    자식 선택자 > : 직계 후손만 선택
-    후손 선택자 (공백) : 직계 포함한 모든 자손들 */
-    .beverage p {
-      /* beverage 클래스의 후손 p 태그 선택 */
-      /* font-weight: 글꼴의 두께 
-          normal lighter blod bloder*/
-      font-weight: lighter;
-      /* font-size */
-      /* 상대크기 em 배율 % 
-        절대크기 px */
-      /* 1.1em = 110%  */
-      font-size: 1.1em; 
-    }
-    /* 구조 선택자 */
-    .menu > li:first-child{
-      /* menu 클래스의 자식 li 중에서 첫 번째 자식 */
-      background-color: rgba(0, 255, 0, 0.5);
-    }
-    .menu > li:nth-child(2){
-      /* menu 클래스의 자식 li 중에서 첫 번째 자식 */
-      background-color: rgba(52, 77, 145, 0.5);
-    }
-    .menu > li:nth-child(3){
-      /* menu 클래스의 자식 li 중에서 첫 번째 자식 */
-      background-color: rgba(128, 128, 0, 0.5);
-    }
-    .menu > li:last-child{
-      /* menu 클래스의 자식 li 중에서 첫 번째 자식 */
-      background-color: rgba(255 , 0, 0, 0.5);
-    }
-    .feature{
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-<header>
-  <h1>건강 음료</h1>
-</header>
-  <nav>
-    <ul class="menu">
-      <li><a href="#green">Green</a></li>
-      <li><a href="#blue">Blue</a></li>
-      <li><a href="#purple">Purple</a></li>
-      <li><a href="#red">Red</a></li>
-    </ul>
-  </nav>
-  
-  <article>
-     <div class="selller">
-      <img src="./images/Penguins.jpg" alt="펭귄"/>
-    </div>
-    <section id="green" class="green beverage">
-      <div>
-        <h2>Green tea Cooler</h2>
-        <img src="images/green.jpg"
-        alt="Green tea Cooler"
-          title="Green tea Cooler">
-          <p>Chock full of <span class="feature">vitamins and minerals</span>,
-            this elixir combines the healthful
-            benefits of green tea with a twist of
-            chamomile blossoms and ginger root.</p>
-      </div>
-    </section>
-    <section id="blue" class="blue beverage">
-      <div>
-        <h2>Raspberry Ice Concentration</h2>
-        <img src="images/lightblue.jpg"
-        alt="Raspberry Ice Concentration"
-        title="Raspberry Ice Concentration">
-        <p>Combining raspberry juice with lemon grass,
-          citrus peel and rosehips, this icy drink will make your mind feel clear and crisp.</p>
-      </div>
-    </section>
-    <section id="purple" class="purple beverage">
-      <div>
-        <h2>Blueberry Bliss Elixir</h2>
-        <img src="images/blue.jpg" alt="Blueberry Bliss Elixir" title="Blueberry Bliss Elixir">
-        <p>Blueberries and cherry essence mixed into a base of elderflower herb tea will put you in a relaxed state of bliss in no time.</p>
-      </div>
-    </section>
-    <section id="red" class="red beverage">
-      <div>
-        <h2>Cranberry Antioxidant Blast</h2>
-        <img src="images/red.jpg" alt="Cranberry Antioxidant Blast" title="Cranberry Antioxidant Blast">
-        <p> Wake up to the flavors of cranberry and hibiscus in this vitamin C rich elixir.</p>
-      </div>
-    </section>
-</article>
+      #blue {
+        color: blue;
+        color: rgb(0, 0, 255);  /* 실제 값: rgb 함수 */
+      }
 
-<nav>
-  <p><a href="index.html">메인페이지로 돌아가기</a></p>\
-</nav>
+      #purple {
+        color: purple;
+        color: #800080;
+      }
 
+      #red {
+        color: red;
+        color: rgb(255, 0, 0);
+      }
 
-<footer>
-  &copy; Bit Lounge, 2021
-</footer>
-</body>
-</html>
+      /* class 셀렉터:
+        .클래스명 */
+      .beverage.green {
+        /* alpha: 투명도 0.0(투명) ~ 1.0(불투명) */
+        background-color: rgba(0, 255, 0, 0.1);
+        background-color: #00FF0020;
+      }
+
+      .beverage.blue {
+        background-color: rgba(0, 0, 255, 0.1);
+        background-color: #0000FF20;
+      }
+
+      .beverage.purple {
+        background-color: rgba(128, 0, 128, 0.1);
+        background-color: #80008020;
+      }
+
+      .beverage.red {
+        background-color: rgba(255, 0, 0, 0.1);
+        background-color: #FF000020;
+      }
+
+      /* 자식 선택자 vs 후손 선택자 
+        자식 선택자 > : 직계 후손만 선택
+        후손 선택자 (공백) : 직계 포함한 모든 자손들
+        */
+      .beverage p {
+        /* beverage 클래스의 후손 p 태그 선택 */
+        /* font-weight 속성: 글꼴의 두께
+            normal, lighter, bold, bolder */
+        font-weight: lighter;
+        /* font-size 속성: 글꼴의 크기 
+            기본 사이즈는 16px;
+            절대 크기: px,
+            상대 크기: em(배율), %(퍼센트) */
+        font-size: 1.1em; /* 110% 와 동일 */
+      }
+
+      .beverage {
+        /* padding: 컨텐츠 내부 영역 */
+        /* 값이 1개: 위, 오른쪽, 아래, 왼쪽에 공백 */
+        padding: 10px;
+        /* border : 테두리를 결정하는 속성 */
+        border-width: 3px;  /* 테두리 두께 */
+        border-style: solid; /* 테두리 스타일 */
+        border-color: grey; /* 테두리 색상 */
+
+        /* 축약형: border-width border-style border-color */
+        border: 3px dashed gray;
+
+        margin-bottom: 10px;
+      }
+
+      .seller img {
+        /* border-radius : 테두리를 둥글게 표현 */
+        border-radius: 20px; /* 값이 1개: 네방향 같은 둥글기 */
+        border-top-right-radius: 30px;
+        border-radius: 10px 20px 30px 40px;
+        /* 값이 네개: 위-왼쪽 위-오른쪽 아래-오른쪽 아래-왼쪽 */
+
+        border-radius: 50%;
+      }
+
+      .beverage h2 {
+        font-size: 1.5em;
+        /* 1.5em = 150% = 24px */
+        /* 특정 영역에 공백 추가 : 접미사 */
+        margin-bottom: 20px;
+      }
+
+      .menu {
+        /* 값이 2개: 위-아래 오른쪽-왼쪽 */
+        margin: 10px 0;
+      }
+
+      /* 구조 선택자 */
+      .menu > li:first-child {
+        /* .menu 클래스의 자식 li 중에서 첫 번째 자식 */
+        background-color: rgba(0, 255, 0, 0.5);
+      }
+
+      .menu > li:nth-child(2) {
+        background-color: rgba(0, 0, 255, 0.5);
+      }
+
+      .menu > li:nth-child(3) {
+        background-color: rgba(128, 0, 128, 0.5);
+      }
+
+      .menu > li:last-child {
+        /* .menu 클래스의 자식 li 중에서 마지막 자식 */
+        background-color: rgba(255, 0, 0, 0.5);
+      }
+
+      .feature {
+        /* class=feature */
+        /* text-decoration 속성: 줄로 꾸미기 */
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>건강 음료</h1>
+    </header>
+    <!-- 메뉴 -->
+    <nav>
+      <ul class="menu"><!-- 순서가 없는 리스트-->
+        <li><a href="#green">Green</a></li>
+        <li><a href="#blue">Blue</a></li>
+        <li><a href="#purple">Purple</a></li>
+        <li><a href="#red">Red</a></li>
+      </ul>
+    </nav>
+
+    <!-- 실질 컨텐츠 -->
+    <article>
+      <div class="seller">
+        <img src="./images/Penguins.jpg" alt="펭귄" />
+      </div>
+      <section id="green" class="green beverage">
+        <div>
+          <h2>Green Tea Cooler</h2>
+          <img src="images/green.jpg" 
+            alt="Green Tea Cooler"
+            title="Green Tea Cooler" />
+          <p>
+      Chock full of <span class="feature">vitamins and minerals</span>, this elixir combines the healthful benefits of green tea with a twist of chamomile blossoms and ginger root.
+          </p>
+        </div>
+      </section>
+
+      <section id="blue" class="blue beverage">
+        <div>
+          <h2>Raspberry Ice Concentration</h2>
+          <img src="images/lightblue.jpg"
+            alt="Raspberry Ice Concentration"
+            title="Raspberry Ice Concentration" />
+          <p>
+      Combining raspberry juice with lemon grass, citrus peel and rosehips, this icy drink will make your mind feel clear and crisp.
+          </p>
+        </div>
+      </section>
+
+      <section id="purple" class="purple beverage">
+
+        <div>
+          <h2>Blueberry Bliss Elixir</h2>
+          <img src="images/blue.jpg" 
+            alt="Blueberry Bliss Elixir"
+            title="Blueberry Bliss Elixir" />
+          <p>
+            Blueberries and cherry essence mixed into a base of elderflower herb tea will put you in a relaxed state of bliss in no time.
+          </p>
+        </div>
+      </section>
+
+      <section id="red" class="red beverage">
+        <div>
+          <h2>Cranberry Antioxidant Blast</h2>
+          <img src="images/red.jpg"
+            alt="Cranberry Antioxidant Blast"
+            title="Cranberry Antioxidant Blast" />
+          <p>
+      Wake up to the flavors of cranberry and hibiscus in this vitamin C rich elixir.
+          </p>
+        </div>
+      </section>
+    </article>
+
+    <nav>
+      <p>
+        <a href="index.html">메인으로 돌아가기</a>
+      </p>
+    </nav>
+
+    <footer>
+      &copy; Bit Lounge, 2021
+    </footer>
+  </body>
+</html>  
