@@ -14,10 +14,17 @@ body {
 ul{ 
     margin-left: 20px;
     list-style: none; 
+    /* list-style-image: url(../practices/images/bullet11.jpg) ; */
 }
+/* li{
+    list-style-image: url(../practices/images/bullet11.jpg) ;
+} */
 li{
+    list-style: url(../practices/images/bullet11.jpg);
+}
+/* li{
     padding-left: 15px;
     background-image: url(../practices/images/bullet11.jpg);
     background-repeat: no-repeat;
     background-position: 0 8px;
-}
+} */
