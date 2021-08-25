@@ -1,0 +1,41 @@
+@charset "UTF-8";
+*{
+    margin: 0;
+    padding: 0;
+}
+body { font-family: 맑은고딕,돋음;
+    font-size: 12px;
+    color:  #333;
+
+}
+
+.tbl-ex {
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    border:  solid #333;
+    border-collapse: collapse;
+    border-left: 0px;
+    border-right: 0px;
+}
+.tbl-ex th,td{
+    border:  1px solid #333;
+    padding: 8px;	
+    border-left: 0px;
+    border-right: 0px;
+    border-style:dotted;
+}
+.tbl-ex th{
+    background-color: #999;
+    font-size: 1.1em;
+    color: #fff;
+    border-top: 4px solid #000;
+    border-bottom: 4px solid #000;
+}
+.tbl-ex tr:nth-child(2n+1){
+    background-color: #E8ECF6;
+}
+.tbl-ex tr:hover  {
+    background-color: #fc6;
+    cursor: pointer;
+}
