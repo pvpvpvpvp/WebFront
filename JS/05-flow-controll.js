@@ -73,6 +73,7 @@ for (let key in obj)
     console.log(key, "->",obj[key]);
 }
 
+
 // for (let key of obj)
 // {
 //     console.log(key.name," ", key.age," ",key.job);
@@ -90,7 +91,7 @@ for (let key in arr) // 값이 아니고 순번을 나타냄 key값은 arr.size�
     console.log(key," ",arr[key]);
 }
 console.log("==========================")
-for (let key of arr) // 순회 객체의 값을 순호
+for (let key of arr) // 순회 객체의 값을 순회
 {
     console.log(key);
 }

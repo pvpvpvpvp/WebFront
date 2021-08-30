@@ -70,3 +70,21 @@ String.prototype.sayHello = function() {
 }
 
 console.log("둘리".sayHello());
+
+console.log("==============================This Binding");
+
+const testFunc = function(location)
+{
+    console.log(`나는 ${location}에 사는 ${this.name} 입니다`);
+    console.log("this는 golbal? ", this === global);
+}
+
+testFunc(" 서울");
+
+const obj = {name: '홍길동'}
+testFunc.call(obj,"서울");
+testFunc.apply(obj,["서울"]);
+
+const boundTestFunc = testFunc.bind(obj);
+
+boundTestFunc("서울");
