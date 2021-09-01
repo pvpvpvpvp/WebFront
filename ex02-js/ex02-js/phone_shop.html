@@ -31,7 +31,13 @@
 
 <body>
     <div id="product-info">
-        <img id="main-image" src="images/iphone-xs.jpeg" class="selected" title="iPhones XS">
+        <!-- 태그에 이벤트 리스너를 붙이는 방법: 
+            Inline JavaScript: 추천하지 않음 -->
+        <img id="main-image" 
+            src="images/iphone-xs.jpeg" 
+            class="selected" 
+            onclick="alert(this.title)"
+            title="iPhones XS">
         <h2>iPhone Xs</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
             magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -40,36 +46,120 @@
             anim id est laborum.</p>
         <h3>Products</h3>
         <ul id="product-list">
-            <li><img class="sub-image" src="images/iphone-xs.jpeg" title="iPhone XS"></li>
-            <li><img class="sub-image" src="images/iphone-xr.jpeg" title="iPhone XR"></li>
-            <li><img class="sub-image" src="images/iphone8.jpeg" title="iPhone 8"></li>
-            <li><img class="sub-image" src="images/ipad-mini.jpeg" title="iPad Mini"></li>
+            <li><img class="sub-image" src="./images/iphone-xs.jpeg" title="iPhone XS"></li>
+            <li><img class="sub-image" src="./images/iphone-xr.jpeg" title="iPhone XR"></li>
+            <li><img class="sub-image" src="./images/iphone8.jpeg" title="iPhone 8"></li>
+            <li><img class="sub-image" src="./images/ipad-mini.jpeg" title="iPad Mini"></li>
         </ul>
+        <button class="index01">01</button>
+        <button class="index01">02</button>
+        <button class="index01">03</button>
+        <button class="index01">04</button>
         <input type="text" id="keyword" /><button id="btn-search">검색</button>
     </div>
 </body>
 <script>
+   
     function testAttributes() {
+        //  main-image id속성을 가진 요소를 찾아와서
+        //  속성 확인
         let obj = document.getElementById("main-image");
-        console.log("#main-image:",obj);
+        console.log("#main-image:", obj);
+        //  가지고 있는 모든 속성의 확인
         console.log(obj.getAttributeNames());
-        for (let key of obj.getAttributeNames()){
-            console.log("attribute: ",key);
+        for (let key of obj.getAttributeNames()) {
+            console.log("attribute:", key);
         }
-        // title 속성
-        console.log("title: ",obj.getAttribute("title"));
-        obj.setAttribute("title","사진:"+obj.getAttribute("title"));
-        console.log("title: ",obj.getAttribute("title"));
-        let subs =document.getElementsByClassName("sub-image");
-        console.log(".sub-image:",subs);
+        //  title 속성 출력
+        console.log("title:", obj.getAttribute("title"));
+        //  title 속성의 변경
+        obj.setAttribute("title", 
+                        "사진:" + obj.getAttribute("title"));
+        console.log("title:", obj.getAttribute("title"));
 
+        //  하단의 Products 이미지들의 title 속성도 변경해 봅시다.
+        let subs = 
+            document.getElementsByClassName("sub-image");
+        console.log(".sub-image:", subs);
+        //  HTMLCollection : 직접 접근은 불가, loop로 
+        //      개별 요소에 접근해야 한다.
         for (let i = 0; i < subs.length; i++) {
-            subs[i].setAttribute("title",
-                "사진:"+subs[i].getAttribute("title"));
-            
+            //  속성 변경
+            subs[i].setAttribute("title", 
+                    "사진:" + subs[i].getAttribute("title"));
         }
     }
-    testAttributes();
-</script>
+    // testAttributes();
 
+    //  이벤트 붙이기 두번째 방식
+    document.getElementById("main-image")
+        .onclick = function(event) {
+        console.log(event); //  이벤트 객체
+        console.log("이벤트 발생 객체:", event.target);
+        //  이벤트 발생 객체: event.target
+        alert(event.target.title);
+    }
+
+    //  이벤트 리스너 부착: 가장 추천하는 방식
+    window.addEventListener("load", function(event) {
+        //  load 이벤트 -> 페이지 초기화를 담당
+        //  키보드 이벤트
+        document.getElementById("keyword")
+            // .onkeypress = function(event) {
+            .onkeyup = function(event) {
+            console.log(event); //  이벤트 정보
+            console.log(event.target);  //  이벤트 발생시킨 객체
+            console.log("눌러진 키:", event.keyCode);
+
+            let btn = document.querySelector("#btn-search");
+            btn.innerText = event.target.value + " :검색";
+        }
+
+      let products = document.getElementsByClassName("sub-image");
+        console.log(products);
+      for (let i = 0; i < products.length; i++) {
+          let product = products[i];  
+          console.log(product);
+          product.addEventListener("click",function(event){
+              let obj = event.target;
+              let mainImage = document.getElementById("main-image");
+            //   mainImage.setAttribute("src",obj.getAttribute("src"));
+            //   mainImage.setAttribute("title",obj.getAttribute("title"));
+            mainImage['title']=obj['title'];
+            mainImage['src']=obj['src'];
+                console.log(event);
+                console.log(i);
+              let title = document.querySelector("#product-info h2");
+              title.innerText = obj.getAttribute("title");
+
+            //   스타일 속성 사용
+            console.log(obj['deta-color']);
+            console.log(obj.getAttribute("data-color"));
+          })
+      } 
+    });
+
+    // litest에 배열 형태로 생성 [B.A,B.A,B.A,B.A]
+    const litest = document.querySelectorAll(".index01");
+    console.log("내가 원하는 bt",litest);
+    function testLi(item,index) {
+        console.log(index);
+        console.log(item);
+    }
+
+    // forEach 를 이용해서 배열을 분해 하면서 =>(분해된 배열)의 객체
+    // item를 이벤트 리스너로 click 했을때 function testLi를 실행
+    // 더불어 인덱스도 부여합니다.
+    litest.forEach(function(item,index) {
+        item.addEventListener("click",testLi);
+    });
+   
+    // litest.forEach((item,index) =>{
+    //     item.addEventListener("click", () => testLi(item,index));
+    // });
+   
+
+    
+
+</script>
 </html>
