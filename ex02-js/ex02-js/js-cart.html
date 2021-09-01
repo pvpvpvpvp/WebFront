@@ -8,6 +8,60 @@
                 height: 30px;
             }
         </style>
+        <script>
+            function addItem(event) {
+                console.log(event);
+                let itemInput = document.getElementById("item");
+                let item = itemInput.value.trim();
+
+                if (item.length>0) {
+                    // 새 노드를 생성
+                    // ul#list에 자식으로 추가
+                    let container = document.getElementById("list");
+                    let itemNode = document.createElement("li");
+                    itemNode.innerHTML = item;
+                   
+
+                    let toolbar = document.createElement("div");
+                    toolbar.style.display= "inline";
+                    let deleteBtn = document.createElement("button");
+                    deleteBtn.innerText="삭제";
+                    deleteBtn.style.cssFloat="right";
+
+                    deleteBtn.addEventListener("click",function(event) {
+                        console.log(event);
+                        // 삭제할 요소
+                        let removeItem = event.target.parentNode.parentNode;
+                        console.log("삭제할 요소:",removeItem);
+                        removeItem.parentNode.removeChild(removeItem);
+                    });
+                    toolbar.appendChild(deleteBtn);
+                    itemNode.appendChild(toolbar);
+
+                    // 트리에 추가
+                    let firstItem = container.children[0];
+                    // 기준이 되는 노드
+                    container.insertBefore(itemNode, firstItem);
+                    
+                    
+                    
+                    // container.appendChild(itemNode);
+
+                }
+                itemInput.value = "";
+                itemInput.focus();
+
+            }
+            window.addEventListener("load",function(event) {
+                document.getElementById("btn-add")
+                    .addEventListener("click",() => addItem(event)); 
+                // 리스트 초기화
+                let items = document.querySelectorAll("#list > li");
+                items.forEach((item) => {
+                    item.parentNode.removeChild(item);
+                })
+            })
+        </script>
     </head>
     <body>
         <div id="header">
